@@ -35,6 +35,7 @@ groupDice.classList.add("hidden");
 let num = 0;
 let scoreOne = 0;
 let scoreTwo = 0;
+const winner = 100;
 
 // Event Hold bottom
 
@@ -50,17 +51,17 @@ const holdEvent = function () {
     scoreTwo = scorePlyTwo.textContent;
     console.log(scoreTwo);
   }
-  if (scoreOne < 20 || scoreTwo < 20) {
+  if (scoreOne < winner || scoreTwo < winner) {
     togglePlayer();
   }
 
   resetCurrent();
-  if (scorePlyOne.textContent >= 20) {
+  if (scorePlyOne.textContent >= winner) {
     playerOne.classList.add("player-winner");
     playerTwo.classList.remove("active-player");
     rollDice.removeEventListener("click", rollDiceEvent);
     hold.removeEventListener("click", holdEvent);
-  } else if (scorePlyTwo.textContent >= 20) {
+  } else if (scorePlyTwo.textContent >= winner) {
     playerTwo.classList.add("player-winner");
     playerOne.classList.remove("active-player");
     rollDice.removeEventListener("click", rollDiceEvent);
